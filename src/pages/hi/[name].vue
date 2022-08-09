@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const props = defineProps<{ name: string }>()
 const router = useRouter()
 const user = useUserStore()
+const route = useRoute('/hi/[name]')
 const { t } = useI18n()
 
 watchEffect(() => {
-  user.setNewName(props.name)
+  user.setNewName(route.params.name)
 })
 </script>
 
@@ -15,7 +15,7 @@ watchEffect(() => {
       <div i-carbon-pedestrian inline-block />
     </div>
     <p>
-      {{ t('intro.hi', { name: props.name }) }}
+      {{ t('intro.hi', { name: route.params.name }) }}
     </p>
 
     <p text-sm opacity-75>
@@ -45,3 +45,13 @@ watchEffect(() => {
     </div>
   </div>
 </template>
+
+<route lang="json">
+{
+  "meta": {
+    "custom": "hello"
+  },
+
+  "props": true
+}
+</route>

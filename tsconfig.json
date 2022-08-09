@@ -18,8 +18,8 @@
       "vitest",
       "vite/client",
       "vue/ref-macros",
-      "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-vue-layouts/client",
+      "./typed-router.d.ts"
     ],
     "paths": {
       "~/*": ["src/*"]
