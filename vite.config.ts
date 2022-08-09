@@ -2,6 +2,9 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
+import {
+  VueRouterExports,
+} from 'unplugin-vue-router'
 import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
@@ -29,6 +32,7 @@ export default defineConfig({
 
     // https://github.com/hannoeru/vite-plugin-pages
     VueRouter({
+      dataFetching: true,
       extensions: ['vue', 'md'],
     }),
 
@@ -39,11 +43,13 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue-router',
         'vue-i18n',
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
+        {
+          'vue-router/auto': VueRouterExports,
+        },
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [
