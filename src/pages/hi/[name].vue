@@ -1,8 +1,17 @@
+<script lang="ts">
+export const useFakeData = defineLoader('/hi/[name]', async (route) => {
+  console.log('fetching', route.fullPath)
+  return { name: route.params.name }
+}, { key: 'fake' })
+</script>
+
 <script setup lang="ts">
 const router = useRouter()
 const user = useUserStore()
 const route = useRoute('/hi/[name]')
 const { t } = useI18n()
+
+const { data } = useFakeData()
 
 watchEffect(() => {
   user.setNewName(route.params.name)
@@ -34,6 +43,8 @@ watchEffect(() => {
         </ul>
       </p>
     </template>
+
+    <pre>{{ data }}</pre>
 
     <div>
       <button

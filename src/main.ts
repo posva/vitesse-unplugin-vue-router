@@ -21,8 +21,14 @@ export const createApp = ViteSSG(
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))
 
-    _setupDataFetchingGuard(ctx.router)
-    // console.log(ctx.routePath)
-    // await ctx.router.push(typeof window !== 'undefined' ?  : ctx.routePath!, { force: true })
+    const fetchedData = _setupDataFetchingGuard(ctx.router, ctx.isClient ? ctx.initialState.vueRouter : undefined)
+
+    if (!ctx.isClient)
+      ctx.initialState.vueRouter = fetchedData
+
+    ctx.router.isReady().then(() => {
+      console.log('READY', fetchedData)
+    })
+    // ctx.initialState.vueRouter = fetchedData
   },
 )
