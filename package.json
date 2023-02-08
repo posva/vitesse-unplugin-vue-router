@@ -47,7 +47,7 @@
     "unocss": "^0.45.26",
     "unplugin-auto-import": "^0.13.0",
     "unplugin-vue-components": "^0.23.0",
-    "unplugin-vue-router": "file:.yalc/unplugin-vue-router",
+    "unplugin-vue-router": "^0.3.2",
     "vite": "^4.1.1",
     "vite-plugin-inspect": "^0.7.15",
     "vite-plugin-pwa": "^0.14.2",

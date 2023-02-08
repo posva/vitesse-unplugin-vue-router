@@ -28,7 +28,7 @@ export default defineConfig({
     VueRouter({
       dataFetching: true,
       // importMode: 'sync',
-      extensions: ['vue', 'md'],
+      extensions: ['.vue', '.md'],
     }),
 
     Vue({

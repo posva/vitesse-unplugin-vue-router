@@ -1,19 +1,15 @@
-<script lang="ts">
-export const useMyData = defineLoader('/', async () => {
-  return [{ name: 'one', when: new Date().toISOString() }, { name: 'two' }]
-}, { key: 'books' })
-</script>
-
 <script setup lang="ts">
 const user = useUserStore()
 const name = $ref(user.savedName)
-
-const { data } = useMyData()
-
+o
 const router = useRouter()
 const go = () => {
-  if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
+  if (name) {
+    router.push({
+      name: '/hi/[name]',
+      params: { name },
+    })
+  }
 }
 
 const { t } = useI18n()

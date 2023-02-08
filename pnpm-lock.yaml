@@ -27,7 +27,7 @@ specifiers:
   unocss: ^0.45.26
   unplugin-auto-import: ^0.13.0
   unplugin-vue-components: ^0.23.0
-  unplugin-vue-router: file:.yalc/unplugin-vue-router
+  unplugin-vue-router: ^0.3.2
   vite: ^4.1.1
   vite-plugin-inspect: ^0.7.15
   vite-plugin-pwa: ^0.14.2
@@ -75,7 +75,7 @@ devDependencies:
   unocss: 0.45.26_vite@4.1.1
   unplugin-auto-import: 0.13.0_@vueuse+core@9.12.0
   unplugin-vue-components: 0.23.0_vue@3.2.47
-  unplugin-vue-router: file:.yalc/unplugin-vue-router_vue-router@4.1.6
+  unplugin-vue-router: 0.3.2_lavcef455lp3wtm2mcdrwhgymm
   vite: 4.1.1
   vite-plugin-inspect: 0.7.15_vite@4.1.1
   vite-plugin-pwa: 0.14.2_vite@4.1.1
@@ -2619,13 +2619,20 @@ packages:
       '@volar/vue-language-core': 1.0.24
     dev: true
 
-  /@vue-macros/common/0.11.2:
-    resolution: {integrity: sha512-z6yKvUL45Sb29QzEDNTwt8mMgcA/ErEZA+BUr6VGiGC0eTXMvkP8E8nwER1q/bVg/R+Xa/m3A6vcJHSUZFodRw==}
+  /@vue-macros/common/0.13.8_vue@3.2.47:
+    resolution: {integrity: sha512-Fs8PNCR117MpR4MQYLupG6qary3n6ZKIkuuaJbmYJ+n3QUiO9LmBs1GgF9L+RQ+M4UDdfuk7LbvZwnWJ89MABA==}
     engines: {node: '>=14.19.0'}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.2.25
+    peerDependenciesMeta:
+      vue:
+        optional: true
     dependencies:
       '@babel/types': 7.20.7
       '@vue/compiler-sfc': 3.2.47
-      magic-string: 0.26.7
+      local-pkg: 0.4.3
+      magic-string: 0.27.0
+      vue: 3.2.47
     dev: true
 
   /@vue/compiler-core/3.2.37:
@@ -3088,8 +3095,8 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /ast-walker-scope/0.2.3:
-    resolution: {integrity: sha512-9reB+iYF6jCCDqKDNNQI8iA2MJcy0jCLvEjfya72F7Zai5i2CB8hk9K/kzkZhagja9othQCFPEvQW11LhPKjmg==}
+  /ast-walker-scope/0.3.1:
+    resolution: {integrity: sha512-c+tWaEoA+b4yJp0NUI8/hYKUv1ELqpCMU/fogGazXxu7EXlry37q1wdfhaQqVmQn4l4agMeo4ek76LyKFIxkKA==}
     engines: {node: '>=14.19.0'}
     dependencies:
       '@babel/parser': 7.20.15
@@ -6546,15 +6553,6 @@ packages:
     hasBin: true
     dev: true
 
-  /mlly/0.5.17:
-    resolution: {integrity: sha512-Rn+ai4G+CQXptDFSRNnChEgNr+xAEauYhwRvpPl/UHStTlgkIftplgJRsA2OXPuoUn86K4XAjB26+x5CEvVb6A==}
-    dependencies:
-      acorn: 8.8.2
-      pathe: 1.1.0
-      pkg-types: 1.0.1
-      ufo: 1.0.1
-    dev: true
-
   /mlly/1.1.0:
     resolution: {integrity: sha512-cwzBrBfwGC1gYJyfcy8TcZU1f+dbH/T+TuOhtYP2wLv/Fb51/uV7HJQfBPtEupZ2ORLRU1EKFS/QfS3eo9+kBQ==}
     dependencies:
@@ -7122,10 +7120,6 @@ packages:
     resolution: {integrity: sha512-c71n61F1skhj/jzZe+fWE9XDoTYjWbUwIKVwFftZ5IOgiX44BVkTkD+/803YDgR50tqeO4eXWxLyVHBLWQAD1g==}
     dev: true
 
-  /pathe/0.3.9:
-    resolution: {integrity: sha512-6Y6s0vT112P3jD8dGfuS6r+lpa0qqNrLyHPOwvXMnyNTQaYiwgau2DP3aNDsR13xqtGj7rrPo+jFUATpU6/s+g==}
-    dev: true
-
   /pathe/1.1.0:
     resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}
     dev: true
@@ -7687,10 +7681,6 @@ packages:
     engines: {node: '>=v12.22.7'}
     dependencies:
       xmlchars: 2.2.0
-    dev: true
-
-  /scule/0.3.2:
-    resolution: {integrity: sha512-zIvPdjOH8fv8CgrPT5eqtxHQXmPNnV/vHJYffZhE43KZkvULvpCTvOt1HPlFaCZx287INL9qaqrZg34e8NgI4g==}
     dev: true
 
   /scule/1.0.0:
@@ -8680,13 +8670,31 @@ packages:
       - supports-color
     dev: true
 
-  /unplugin/0.9.6:
-    resolution: {integrity: sha512-YYLtfoNiie/lxswy1GOsKXgnLJTE27la/PeCGznSItk+8METYZErO+zzV9KQ/hXhPwzIJsfJ4s0m1Rl7ZCWZ4Q==}
+  /unplugin-vue-router/0.3.2_lavcef455lp3wtm2mcdrwhgymm:
+    resolution: {integrity: sha512-UB6FUjHB3Sb7ef6+98zBl7kq7t5mNS0+qXrKYN1IQfocscT4tA3UAiNV1Khc85u1m/DGNvZTBjL+TX+jsv5nmQ==}
+    peerDependencies:
+      vue-router: ^4.1.0
+    peerDependenciesMeta:
+      vue-router:
+        optional: true
     dependencies:
-      acorn: 8.8.2
+      '@babel/types': 7.20.7
+      '@rollup/pluginutils': 5.0.2
+      '@vue-macros/common': 0.13.8_vue@3.2.47
+      ast-walker-scope: 0.3.1
       chokidar: 3.5.3
-      webpack-sources: 3.2.3
-      webpack-virtual-modules: 0.4.6
+      fast-glob: 3.2.12
+      json5: 2.2.3
+      local-pkg: 0.4.3
+      mlly: 1.1.0
+      pathe: 1.1.0
+      scule: 1.0.0
+      unplugin: 1.0.1
+      vue-router: 4.1.6_vue@3.2.47
+      yaml: 2.2.1
+    transitivePeerDependencies:
+      - rollup
+      - vue
     dev: true
 
   /unplugin/1.0.1:
@@ -9163,10 +9171,6 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  /webpack-virtual-modules/0.4.6:
-    resolution: {integrity: sha512-5tyDlKLqPfMqjT3Q9TAqf2YqjwmnUleZwzJi1A5qXnlBCdj2AtOJ6wAWdglTIDOPgOiOrXeBeFcsQ8+aGQ6QbA==}
-    dev: true
-
   /webpack-virtual-modules/0.5.0:
     resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
@@ -9535,31 +9539,4 @@ packages:
   /yocto-queue/1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
-    dev: true
-
-  file:.yalc/unplugin-vue-router_vue-router@4.1.6:
-    resolution: {directory: .yalc/unplugin-vue-router, type: directory}
-    id: file:.yalc/unplugin-vue-router
-    name: unplugin-vue-router
-    version: 0.2.1
-    peerDependencies:
-      vue-router: ^4.1.0
-    peerDependenciesMeta:
-      vue-router:
-        optional: true
-    dependencies:
-      '@babel/types': 7.20.7
-      '@rollup/pluginutils': 4.2.1
-      '@vue-macros/common': 0.11.2
-      ast-walker-scope: 0.2.3
-      chokidar: 3.5.3
-      fast-glob: 3.2.12
-      json5: 2.2.3
-      local-pkg: 0.4.3
-      mlly: 0.5.17
-      pathe: 0.3.9
-      scule: 0.3.2
-      unplugin: 0.9.6
-      vue-router: 4.1.6_vue@3.2.47
-      yaml: 2.2.1
     dev: true
