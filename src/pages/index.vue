@@ -1,6 +1,5 @@
 <script lang="ts">
 export const useMyData = defineLoader('/', async () => {
-  console.log('called books')
   return [{ name: 'one', when: new Date().toISOString() }, { name: 'two' }]
 }, { key: 'books' })
 </script>
@@ -10,8 +9,6 @@ const user = useUserStore()
 const name = $ref(user.savedName)
 
 const { data } = useMyData()
-
-console.log('index render')
 
 const router = useRouter()
 const go = () => {

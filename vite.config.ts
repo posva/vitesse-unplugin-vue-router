@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import {
-  VueRouterExports,
+  VueRouterAutoImports,
 } from 'unplugin-vue-router'
 import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
@@ -25,15 +25,15 @@ export default defineConfig({
   },
 
   plugins: [
+    VueRouter({
+      dataFetching: true,
+      // importMode: 'sync',
+      extensions: ['vue', 'md'],
+    }),
+
     Vue({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
-    }),
-
-    // https://github.com/hannoeru/vite-plugin-pages
-    VueRouter({
-      dataFetching: true,
-      extensions: ['vue', 'md'],
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -47,9 +47,7 @@ export default defineConfig({
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
-        {
-          'vue-router/auto': VueRouterExports,
-        },
+        VueRouterAutoImports,
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [

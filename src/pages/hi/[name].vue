@@ -13,6 +13,12 @@ const { t } = useI18n()
 
 const { data } = useFakeData()
 
+definePage({
+  meta: {
+    title: 'hello',
+  },
+})
+
 watchEffect(() => {
   user.setNewName(route.params.name)
 })
@@ -60,7 +66,7 @@ watchEffect(() => {
 <route lang="json">
 {
   "meta": {
-    "custom": "hello"
+    "custom": "other"
   },
 
   "props": true
